@@ -1,5 +1,16 @@
 const magik = magikcraft.io;
-const mct1 = magik.global('mct1') as any;
+interface MCT1 {
+    initialised: boolean;
+    state?: {
+        bgl: number;
+        insulin: number;
+    };
+    bars?: {
+        bgl: BossBar;
+        insulin: BossBar;
+    };
+}
+const mct1 = <MCT1> magik.global('mct1');
 
 export function setupBars(callback: (bars: any) => void) {
     const Bars = magik.Bars;
@@ -22,4 +33,8 @@ export function setupBars(callback: (bars: any) => void) {
     );
 
     callback({ insulin, bgl });
+}
+
+function jump(power = 100) {
+    magik.exsultus(power);
 }

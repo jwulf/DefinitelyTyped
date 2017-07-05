@@ -636,6 +636,6 @@ declare namespace Java {
     function type(classname: string): any;
 }
 
-declare const magikcraft: {io:magik};
+declare const magikcraft: {io: magik};
 
 // export { };
